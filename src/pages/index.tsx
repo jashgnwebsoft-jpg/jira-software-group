@@ -1,4 +1,4 @@
-import { Box, Grid, Stack } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 // import HeaderComponent from "../components/HeaderComponent";
 import { Outlet } from "react-router";
 import SideNav from "../components/SideNav";

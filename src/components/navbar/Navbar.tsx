@@ -226,6 +226,9 @@ export default function Navbar() {
           color: "rgb(23, 43, 77)",
           boxShadow: "0px 1px 2px rgba(0,0,0,0.1)",
         }}
+        style={{
+          position:"sticky"
+        }}
       >
         <Toolbar sx={{ minHeight: 50, px: 3 }}>
           <Stack direction="row" gap={1} alignItems="center" flex={1}>
