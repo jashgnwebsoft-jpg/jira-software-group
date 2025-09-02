@@ -1,9 +1,8 @@
 import {
   KeyboardArrowDown,
-  Edit,
-  FileCopy,
-  Archive,
-  MoreHoriz,
+  Flag,
+  LocalCafe,
+  TripOrigin,
 } from "@mui/icons-material";
 import {
   Button,
@@ -13,6 +12,8 @@ import {
   Menu,
   styled,
   type MenuProps,
+  Stack,
+  Typography,
 } from "@mui/material";
 import React from "react";
 
@@ -67,11 +68,18 @@ type Props = {
   backgroundColorProps?: string;
   colorProps?: string;
   fontWeightProps?: number;
+  hoverEffect?: boolean;
 };
 
 export default function CustomMenuButtonComponent(props: Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const { title, backgroundColorProps, colorProps, fontWeightProps } = props;
+  const {
+    title,
+    backgroundColorProps,
+    colorProps,
+    fontWeightProps,
+    hoverEffect,
+  } = props;
 
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -84,8 +92,8 @@ export default function CustomMenuButtonComponent(props: Props) {
   return (
     <>
       <Button
-        id="demo-customized-button"
-        aria-controls={open ? "demo-customized-menu" : undefined}
+        id="custom-menu-button"
+        aria-controls={open ? "custom-menu-button-id" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         variant="contained"
@@ -93,40 +101,125 @@ export default function CustomMenuButtonComponent(props: Props) {
         onClick={handleClick}
         endIcon={<KeyboardArrowDown />}
         sx={{
-          background: backgroundColorProps,
-          color: colorProps,
+          fontFamily: '"Charlie Text", sans-serif',
           fontWeight: fontWeightProps,
+          bgcolor: backgroundColorProps,
+          color: colorProps,
+          "&:hover": {
+            bgcolor: hoverEffect ? "rgb(173, 200, 255)" : "#0000000",
+            color: hoverEffect ? "rgb(0, 42, 251)" : "#000000",
+          },
         }}
       >
         {title}
       </Button>
       <StyledMenu
-        id="demo-customized-menu"
+        id="custom-menu-button-id"
         slotProps={{
           list: {
-            "aria-labelledby": "demo-customized-button",
+            "aria-labelledby": "custom-menu-button",
           },
         }}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <Edit />
-          Edit
+        <MenuItem
+          onClick={handleClose}
+          disableRipple
+          disabled
+          sx={{
+            opacity: 1,
+            cursor: "default",
+            py: 1,
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Charlie Text",
+              fontSize: "14px",
+              fontWeight: "bold",
+              "&": {
+                color: "#000 !important",
+              },
+              textTransform: "uppercase",
+            }}
+          >
+            Recent
+          </Typography>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <FileCopy />
-          Duplicate
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <Flag
+              sx={{
+                color: "error.main",
+                bgcolor: "#ffab00",
+                width: "28px",
+                height: "28px",
+              }}
+            />
+            <Stack direction="column">
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                Mario's World (MW)
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Software Projects
+              </Typography>
+            </Stack>
+          </Stack>
         </MenuItem>
+
+        <MenuItem onClick={handleClose} disableRipple>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <TripOrigin
+              sx={{
+                fontSize: 24,
+                color: "#ff6d00",
+                bgcolor: "#00b0ff",
+                width: "28px",
+                height: "28px",
+              }}
+            />
+            <Stack direction="column">
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                Onboarding (ON)
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Software Projects
+              </Typography>
+            </Stack>
+          </Stack>
+        </MenuItem>
+
+        <MenuItem onClick={handleClose} disableRipple>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <LocalCafe
+              sx={{
+                fontSize: 24,
+                color: "#ff9800",
+                bgcolor: "#0091ea",
+                width: "28px",
+                height: "28px",
+              }}
+            />
+            <Stack direction="column">
+              <Typography variant="body1" sx={{ fontWeight: 600 }}>
+                Space Cafe (SC)
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Software Projects
+              </Typography>
+            </Stack>
+          </Stack>
+        </MenuItem>
+
         <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>
-          <Archive />
-          Archive
+          <Typography>View All Project</Typography>
         </MenuItem>
         <MenuItem onClick={handleClose} disableRipple>
-          <MoreHoriz />
-          More
+          <Typography>Create Project</Typography>
         </MenuItem>
       </StyledMenu>
     </>
