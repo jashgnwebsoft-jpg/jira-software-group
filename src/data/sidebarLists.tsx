@@ -1,59 +1,60 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import type {
-  MainListMenuItem,
-  SubListItemWithMenuType,
-} from "../../components/SubListItemWithMenuOptions";
+
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import type { ListProps } from "../../components/CustomListItem";
 import MailIcon from "@mui/icons-material/Mail";
+import type {
+  SubListItemWithMenuType,
+  MainListMenuItem,
+} from "../types/SubListMenuType";
+import type { ListProps } from "../components/CustomListItem";
 
 export const projectSubList: ListProps[] = [
-    {
-      text: "demo-project",
-      iconData: <MailIcon />,
-      isSelected: false,
-      isSubList: false,
-      listItems: null,
-      open: true,
-    },
-  ];
+  {
+    text: "demo-project",
+    iconData: <MailIcon />,
+    isSelected: false,
+    isSubList: false,
+    listItems: null,
+    open: true,
+  },
+];
 export const starredSubList: ListProps[] = [
-    {
-      text: "starred-1",
-      iconData: <MailIcon />,
-      isSelected: false,
-      isSubList: false,
-      listItems: null,
-      open: true,
-    },
-    {
-      text: "starred-2",
-      iconData: <MailIcon />,
-      isSelected: false,
-      isSubList: false,
-      listItems: null,
-      open: true,
-    },
-  ];
+  {
+    text: "starred-1",
+    iconData: <MailIcon />,
+    isSelected: false,
+    isSubList: false,
+    listItems: null,
+    open: true,
+  },
+  {
+    text: "starred-2",
+    iconData: <MailIcon />,
+    isSelected: false,
+    isSubList: false,
+    listItems: null,
+    open: true,
+  },
+];
 export const recentsSubList: ListProps[] = [
-    {
-      text: "recents-1",
-      iconData: <MailIcon />,
-      isSelected: false,
-      isSubList: false,
-      listItems: null,
-      open: true,
-    },
-    {
-      text: "recents-2",
-      iconData: <MailIcon />,
-      isSelected: false,
-      isSubList: false,
-      listItems: null,
-      open: true,
-    },
-  ];
+  {
+    text: "recents-1",
+    iconData: <MailIcon />,
+    isSelected: false,
+    isSubList: false,
+    listItems: null,
+    open: true,
+  },
+  {
+    text: "recents-2",
+    iconData: <MailIcon />,
+    isSelected: false,
+    isSubList: false,
+    listItems: null,
+    open: true,
+  },
+];
 export const starredSubMenuListItems: SubListItemWithMenuType[] = [
   {
     text: "Add People",

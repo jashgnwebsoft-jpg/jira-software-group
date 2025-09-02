@@ -26,10 +26,9 @@ import {
 } from "@mui/material";
 import React from "react";
 import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
-import { ChildIssueData, SubtaskData } from "../../data/TempData";
+import { childIssueData, subtaskData } from "../../data/TempData";
 
 export default function SubtaskView() {
-  console.log(SubtaskData[0].icon);
   return (
     <>
       <Box border="1px solid grey" borderRadius={2} p={4}>
@@ -178,7 +177,7 @@ export default function SubtaskView() {
                 Suggested child issues
               </Button>
               <Divider sx={{ pb: 2 }} />
-              {ChildIssueData.map((t: string, index: number) => (
+              {childIssueData.map((t: string, index: number) => (
                 <React.Fragment key={index}>
                   <Stack
                     direction={{ xs: "column", md: "row" }}
@@ -281,7 +280,7 @@ export default function SubtaskView() {
               </Stack>
             </Stack>
             <Grid container spacing={2}>
-              {SubtaskData.map((data, index) => (
+              {subtaskData.map((data, index) => (
                 <Grid size={{ xs: 12, md: 4 }} key={index}>
                   <Box border="2px solid grey" borderRadius={2} p={2}>
                     <Stack
