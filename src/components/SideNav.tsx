@@ -1,24 +1,16 @@
 import { useState } from "react";
 import {
   styled,
-  useTheme,
   type Theme,
   type CSSObject,
   alpha,
 } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
-import MuiAppBar, {
-  type AppBarProps as MuiAppBarProps,
-} from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import GridViewIcon from "@mui/icons-material/GridView";
 
 import CustomListItem from "./CustomListItem";
 
@@ -31,9 +23,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  Stack,
 } from "@mui/material";
-import { ChevronRight, ChevronLeft } from "@mui/icons-material";
 import SubListItemWithMenuOptions from "./SubListItemWithMenuOptions";
 import {
   menuSublistItems,
@@ -42,7 +32,7 @@ import {
   starredSubList,
 } from "../data/sidebarLists";
 import { Link } from "react-router";
-const drawerWidth = 280;
+const drawerWidth = 300;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -65,18 +55,18 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
+// const DrawerHeader = styled("div")(({ theme }) => ({
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "space-between",
+//   padding: theme.spacing(0, 1),
+//   // necessary for content to be below app bar
+//   ...theme.mixins.toolbar,
+// }));
 
-interface AppBarProps extends MuiAppBarProps {
-  open?: boolean;
-}
+// interface AppBarProps extends MuiAppBarProps {
+//   open?: boolean;
+// }
 
 // const AppBar = styled(MuiAppBar, {
 //   shouldForwardProp: (prop) => prop !== "open",
@@ -135,7 +125,7 @@ const Drawer = styled(MuiDrawer, {
 
 export default function SideNav() {
   // const theme = useTheme();
-  const [open, setOpen] = useState(true);
+  const [open] = useState(true);
   const [menuSelected, setMenuSelected] = useState(0);
   const [subSelected, setSubSelected] = useState(-1);
 
@@ -196,7 +186,7 @@ export default function SideNav() {
           <Link
             onClick={() => handleSelectedMenuChanged(1)}
             style={{ color: "#00070aff", textDecoration: "none" }}
-            to={"/jira/goal"}
+            to={"/jira/"}
           >
             <CustomListItem
               text={"Your Work"}
@@ -273,7 +263,7 @@ export default function SideNav() {
           <Link
             onClick={() => handleSelectedMenuChanged(6)}
             style={{ color: "#00070aff", textDecoration: "none" }}
-            to={"#"}
+            to={"/jira/subtaskview"}
           >
             <CustomListItem
               text={"Plans"}

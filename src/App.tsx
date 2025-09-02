@@ -1,6 +1,5 @@
 import { createTheme } from "@mui/material";
 import { ThemeProvider, type Theme } from "@emotion/react";
-import { grey } from "@mui/material/colors";
 import { RouterProvider } from "react-router";
 import router from "./Routes/Routes";
 
@@ -11,7 +10,6 @@ const theme: Theme = createTheme({
     // primary: {
     //   myCutomColor: palette.augmentColor({ color: { main: "#aeaeae" } }),
     // },
-    jash: grey,
   },
 });
 
