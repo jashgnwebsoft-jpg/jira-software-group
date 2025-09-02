@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
-import Button from '@mui/material/Button';
+import { useState } from "react";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Collapse from "@mui/material/Collapse";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import StarBorder from "@mui/icons-material/StarBorder";
+import Button from "@mui/material/Button";
 
 export default function NestedDrawerExample() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -30,11 +30,7 @@ export default function NestedDrawerExample() {
   return (
     <div>
       <Button onClick={handleDrawerOpen}>Open Drawer</Button>
-      <Drawer
-        anchor="left"
-        open={openDrawer}
-        onClose={handleDrawerClose}
-      >
+      <Drawer anchor="left" open={openDrawer} onClose={handleDrawerClose}>
         <List
           sx={{ width: 250 }}
           component="nav"

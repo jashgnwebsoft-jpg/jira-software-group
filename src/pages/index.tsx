@@ -7,7 +7,6 @@ import Navbar from "../components/navbar/Navbar";
 export default function Index() {
   return (
     <>
-      {/* <HeaderComponent /> */}
       <Stack direction="column" gap={2}>
         <Navbar />
         <Grid container spacing={2}>
