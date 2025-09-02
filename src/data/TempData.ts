@@ -226,3 +226,11 @@ export const issueColumnsData: readonly issueColumns[] = [
   { id: "assignee", label: "Assignee", width: 70 },
   { id: "reporter", label: "Reporter", width: 100, align: "left" },
 ];
+
+export const issueButtonTitle: string[] = [
+  "Assignee",
+  "Reporter",
+  "Status",
+  "Type",
+  "Status Category",
+];
