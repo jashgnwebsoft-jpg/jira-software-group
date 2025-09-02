@@ -195,6 +195,7 @@ export default function SideNav() {
           >
             <CustomListItem
               text={"Apps"}
+              // text={"Projects"}
               isSubList={false}
               open={open}
               listItems={null}
@@ -235,10 +236,10 @@ export default function SideNav() {
           <Link
             onClick={() => handleSelectedMenuChanged(7)}
             style={{ color: "#00070aff", textDecoration: "none" }}
-            to={"#"}
+            to={"/jira/project"}
           >
             <CustomListItem
-              text={"Projects"}
+              text={"Project Issues"}
               isSubList={false}
               open={open}
               listItems={projectSubList}
