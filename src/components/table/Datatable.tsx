@@ -1,4 +1,10 @@
-import { AutoStories, Search, Star, StarBorder } from "@mui/icons-material";
+import {
+  AutoStories,
+  MoreHoriz,
+  Search,
+  Star,
+  StarBorder,
+} from "@mui/icons-material";
 import {
   Button,
   Grid,
@@ -132,7 +138,9 @@ export default function DataTable() {
                     </Stack>
                   </StyledTableCell>
                   <StyledTableCell>
-                    <IconButton>...</IconButton>
+                    <IconButton>
+                      <MoreHoriz />
+                    </IconButton>
                   </StyledTableCell>
                 </TableRow>
               ))}
