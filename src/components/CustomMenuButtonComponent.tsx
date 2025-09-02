@@ -88,7 +88,7 @@ export default function CustomMenuButtonComponent(props: Props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <Button

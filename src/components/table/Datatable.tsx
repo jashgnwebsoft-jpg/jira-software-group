@@ -16,9 +16,10 @@ import {
   Checkbox,
   IconButton,
 } from "@mui/material";
-import { projects } from "../../data/projects";
+
 import React from "react";
 import styled from "@emotion/styled";
+import { projects } from "../../data/TempData";
 
 const StyledTableCell = styled(TableCell)(() => ({
   borderBottom: "none",
@@ -40,7 +41,7 @@ export default function DataTable() {
       <Grid>
         <Stack direction="row" justifyContent="space-between">
           <Typography variant="h4" fontWeight="bold">
-             Projects
+            Projects
           </Typography>
           <Button variant="contained">Create Project</Button>
         </Stack>
@@ -74,16 +75,16 @@ export default function DataTable() {
                   <Star />
                 </TableCell>
                 <TableCell>
-                   <Typography fontWeight="bold">Name</Typography>
+                  <Typography fontWeight="bold">Name</Typography>
                 </TableCell>
                 <TableCell>
-                   <Typography fontWeight="bold">Code</Typography>
+                  <Typography fontWeight="bold">Code</Typography>
                 </TableCell>
                 <TableCell>
-                   <Typography fontWeight="bold">Type</Typography>
+                  <Typography fontWeight="bold">Type</Typography>
                 </TableCell>
                 <TableCell>
-                   <Typography fontWeight="bold">Lead</Typography>
+                  <Typography fontWeight="bold">Lead</Typography>
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -101,15 +102,23 @@ export default function DataTable() {
                     />
                   </TableCell>
                   <StyledTableCell>
-                 
-                       <Stack direction="row" spacing={2} alignItems="center">
-                      <AutoStories  sx={{bgcolor:"#2a8ad9ff" , color:"#ffffff" ,border:"2px #2a8ad9ff",borderRadius:"4px" ,padding:"2px"}}/>
-                       <Typography fontWeight="bold" color="primary">{project.name}</Typography>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <AutoStories
+                        sx={{
+                          bgcolor: "#2a8ad9ff",
+                          color: "#ffffff",
+                          border: "2px #2a8ad9ff",
+                          borderRadius: "4px",
+                          padding: "2px",
+                        }}
+                      />
+                      <Typography fontWeight="bold" color="primary">
+                        {project.name}
+                      </Typography>
                     </Stack>
-                  
                   </StyledTableCell>
                   <StyledTableCell>
-                     <Typography fontWeight="bold">{project.key}</Typography>
+                    <Typography fontWeight="bold">{project.key}</Typography>
                   </StyledTableCell>
                   <StyledTableCell>
                     <Typography fontWeight="bold">{project.type}</Typography>
