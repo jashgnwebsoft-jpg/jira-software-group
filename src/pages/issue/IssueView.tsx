@@ -6,15 +6,15 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import CustomizedMenus from "../components/CustomizedMenus";
-import Search from "../components/Search";
 import { Menu } from "@mui/icons-material";
-import CustomTable from "../components/CustomTable";
+import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
+import CustomTable from "../../components/CustomTable";
+import Search from "../../components/SearchComponent";
 
-export default function ProjectList() {
+export default function IssueView() {
   return (
     <>
-      <Card sx={{paddingLeft:3}}>
+      <Card sx={{ paddingLeft: 3 }}>
         <CardContent sx={{ p: 3, width: "95%" }}>
           <Breadcrumbs aria-label="breadcrumb">
             <Typography sx={{ fontWeight: "bold" }} variant="subtitle1">
@@ -35,7 +35,13 @@ export default function ProjectList() {
               Issues
             </Typography>
             <Stack gap={1} direction={"row"}>
-              <CustomizedMenus name="Expoert Issues" />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Expoert Issues"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
               <Button
                 variant="contained"
                 sx={{
@@ -57,21 +63,46 @@ export default function ProjectList() {
           >
             <Stack direction={"row"} gap={1}>
               <Search />
-              <CustomizedMenus name="Assignee" />
-              <CustomizedMenus name="Reporter" />
-              <CustomizedMenus name="Status" />
-              <CustomizedMenus name="Type" />
-              <CustomizedMenus name="Status Category" />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Assignee"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Reporter"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Status"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Type"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
+              <CustomMenuButtonComponent
+                hoverEffect={false}
+                title="Status Category"
+                backgroundColorProps="grey.100"
+                colorProps="grey.700"
+                fontWeightProps="bold"
+              />
             </Stack>
 
             <Button
               variant="contained"
               endIcon={<Menu />}
-              // sx={{
-              //   backgroundColor: "grey.100",
-              //   color: "grey.700",
-              //   fontWeight: "bold",
-              // }}
               sx={(theme) => ({
                 backgroundColor: theme.palette.grey[100],
                 color: theme.palette.grey[700],

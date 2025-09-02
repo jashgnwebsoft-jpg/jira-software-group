@@ -67,7 +67,7 @@ type Props = {
   title: string;
   backgroundColorProps?: string;
   colorProps?: string;
-  fontWeightProps?: number;
+  fontWeightProps?: number | string;
   hoverEffect?: boolean;
 };
 

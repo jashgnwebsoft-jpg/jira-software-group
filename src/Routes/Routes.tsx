@@ -3,8 +3,8 @@ import NotFoundPage from "../pages/notFound/NotFoundPage";
 import Index from "../pages";
 import SubtaskView from "../pages/subtask/SubtaskView";
 import GoalPageView from "../pages/goal/GoalPageView";
-import Home from "../pages/home/Home";
-import ProjectList from "../pages/Home";
+import ProjectView from "../pages/projects/ProjectView";
+import IssueView from "../pages/issue/IssueView";
 
 const router = createBrowserRouter([
   {
@@ -15,10 +15,10 @@ const router = createBrowserRouter([
     path: "jira",
     Component: Index,
     children: [
-      { index: true, Component: Home },
+      { index: true, Component: ProjectView },
       { path: "subtaskview", Component: SubtaskView },
       { path: "goal", Component: GoalPageView },
-      { path: "project" , Component: ProjectList}
+      { path: "project", Component: IssueView },
     ],
   },
 ]);

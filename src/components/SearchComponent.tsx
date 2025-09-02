@@ -1,11 +1,10 @@
-import * as React from "react";
 import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import { Box } from "@mui/material";
 import { grey } from "@mui/material/colors";
 
-export default function Search() {
+export default function SearchComponent() {
   return (
     <Box
       component="form"
@@ -20,9 +19,6 @@ export default function Search() {
         backgroundColor: grey[100],
       }}
     >
-      {/* <IconButton sx={{ p: '10px' }} aria-label="menu">
-        <MenuIcon />
-      </IconButton> */}
       <InputBase
         sx={{
           ml: 1,
@@ -31,7 +27,7 @@ export default function Search() {
           "& .MuiInputBase-input": {
             fontWeight: 550,
           },
-        }} 
+        }}
         placeholder="Search Issues"
         inputProps={{ "aria-label": "search issues" }}
       />
@@ -42,10 +38,6 @@ export default function Search() {
       >
         <SearchIcon sx={{ color: grey[700] }} />
       </IconButton>
-      {/* <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" /> */}
-      {/* <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
-        <DirectionsIcon />
-      </IconButton> */}
     </Box>
   );
 }
