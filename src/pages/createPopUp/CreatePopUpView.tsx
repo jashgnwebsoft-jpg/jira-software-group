@@ -4,7 +4,6 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { BootstrapDialog } from "./CustomizedComponents";
 import {
   Accordion,
   AccordionDetails,
@@ -17,6 +16,8 @@ import {
   Grid,
   Stack,
   InputBase,
+  Dialog,
+  styled,
 } from "@mui/material";
 import {
   AccountTreeOutlined,
@@ -33,15 +34,24 @@ import {
   VisibilityOutlined,
   Warning,
 } from "@mui/icons-material";
-import CustomizedMenus from "./CustomizedMenus";
-import CommentBox from "../components/CommentBox";
-import DynamicPage from "../components/Dynamic";
+import CommentBox from "../../components/CommentBoxComponent";
+import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
 
 type Props = {
   open: boolean;
   handleClose: () => void;
 };
-export default function Screen1(prop: Props) {
+const BootstrapDialog = styled(Dialog)(() => ({
+  "& .MuiPaper-root": {
+    width: "80%",
+    maxWidth: "none",
+    overflow: "auto",
+  },
+  "& .MuiPaper-root::-webkit-scrollbar": {
+    display: "none",
+  },
+}));
+export default function CreatePopUpView(prop: Props) {
   const { handleClose, open } = prop;
   const [asset, setAsset] = React.useState<string>("");
   const [mouse, setMouse] = React.useState<string>("");
@@ -335,18 +345,36 @@ export default function Screen1(prop: Props) {
                   </Button>
                 </Stack>
               </Stack>
-              {selectedBtn === "all" && <DynamicPage name="All"/>}
+              {selectedBtn === "all" && <Typography>ALL</Typography>}
               {selectedBtn === "comments" && <CommentBox />}
-              {selectedBtn === "history" && <DynamicPage name="History"/>}
-              {selectedBtn === "worklog" && <DynamicPage name="Work Log"/>}
-              {selectedBtn === "transitions" && <DynamicPage name="Transitions"/>}
-              {selectedBtn === "checklisthistory" && <DynamicPage name="Check List History"/>}
-              {selectedBtn === "newestfirst" && <DynamicPage name="Check List Newest First"/>}
+              {selectedBtn === "history" && <Typography>History</Typography>}
+              {selectedBtn === "worklog" && <Typography>worklog</Typography>}
+              {selectedBtn === "transitions" && (
+                <Typography>Transition</Typography>
+              )}
+              {selectedBtn === "checklisthistory" && (
+                <Typography>checkList</Typography>
+              )}
+              {selectedBtn === "newestfirst" && (
+                <Typography>news first</Typography>
+              )}
             </Grid>
             <Grid size={{ md: 4, xs: 12 }} p={2}>
               <Stack direction={"row"} gap={1} mb={2}>
-                <CustomizedMenus name="To Do" />
-                <CustomizedMenus name="Actions" />
+                <CustomMenuButtonComponent
+                  hoverEffect={false}
+                  title="To Do"
+                  backgroundColorProps="grey.100"
+                  colorProps="grey.700"
+                  fontWeightProps="bold"
+                />
+                <CustomMenuButtonComponent
+                  hoverEffect={false}
+                  title="Action"
+                  backgroundColorProps="grey.100"
+                  colorProps="grey.700"
+                  fontWeightProps="bold"
+                />
               </Stack>
               <Accordion style={{ width: "100%" }}>
                 <AccordionSummary

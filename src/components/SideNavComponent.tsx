@@ -121,7 +121,7 @@ const Drawer = styled(MuiDrawer, {
   ],
 }));
 
-export default function SideNav() {
+export default function SideNavComponent() {
   // const theme = useTheme();
   const [open] = useState(true);
   const [menuSelected, setMenuSelected] = useState(0);

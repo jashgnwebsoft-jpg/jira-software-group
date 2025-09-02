@@ -32,7 +32,7 @@ const StyledTableCell = styled(TableCell)(() => ({
   padding: 1,
 }));
 
-export default function DataTable() {
+export default function ProjectView() {
   const [starred, setStarred] = React.useState<Record<number, boolean>>({});
 
   const handleStarChange = (id: number) => {

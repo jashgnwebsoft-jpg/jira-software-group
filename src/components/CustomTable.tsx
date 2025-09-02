@@ -13,24 +13,7 @@ import TaskIcon from "@mui/icons-material/Task";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline"; // fallback
 import { Campaign } from "@mui/icons-material";
 import SyncIcon from "@mui/icons-material/Sync";
-
-interface Column {
-  id: "type" | "key" | "summary" | "assignee" | "reporter";
-  label: string;
-  minWidth?: number;
-  width?: number | string;
-  align?: "right" | "center" | "left";
-  pl?: number;
-  pr?: number;
-}
-
-const columns: readonly Column[] = [
-  { id: "type", label: "Type", width: 30 },
-  { id: "key", label: "Key", width: 30 },
-  { id: "summary", label: "Summary", width: 350 },
-  { id: "assignee", label: "Assignee", width: 70 },
-  { id: "reporter", label: "Reporter", width: 100, align: "left" },
-];
+import { issueColumnsData } from "../data/TempData";
 
 const hideScrollbar = {
   "&::-webkit-scrollbar": { display: "none" },
@@ -65,7 +48,6 @@ export default function CustomTable() {
         <TableContainer
           sx={{
             maxHeight: 660,
-            //   maxWidth: 1500,
             overflowY: "auto",
             ...hideScrollbar,
           }}
@@ -80,7 +62,7 @@ export default function CustomTable() {
           >
             <TableHead>
               <TableRow>
-                {columns.map((column) => (
+                {issueColumnsData.map((column) => (
                   <TableCell
                     key={column.id}
                     align={column.align}

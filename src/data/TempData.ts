@@ -2,6 +2,7 @@ import { LocalFlorist, Settings } from "@mui/icons-material";
 import type { SubtaskType } from "../types/SubtaskType";
 import type { Goal } from "../types/GoalType";
 import type { Project } from "../types/Project";
+import type { issueColumns } from "../types/IssueType";
 
 export const childIssueData: string[] = [
   "Design website UX",
@@ -216,4 +217,12 @@ export const projects: Project[] = [
     type: "Team-managed software",
     lead: { name: "Bella Shields", avatar: "https://i.pravatar.cc/40?img=4" },
   },
+];
+
+export const issueColumnsData: readonly issueColumns[] = [
+  { id: "type", label: "Type", width: 30 },
+  { id: "key", label: "Key", width: 30 },
+  { id: "summary", label: "Summary", width: 350 },
+  { id: "assignee", label: "Assignee", width: 70 },
+  { id: "reporter", label: "Reporter", width: 100, align: "left" },
 ];

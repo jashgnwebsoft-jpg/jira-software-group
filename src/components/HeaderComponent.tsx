@@ -1,71 +1,104 @@
 import {
-  Add,
-  AppsRounded,
-  Assignment,
-  HelpOutline,
-  Notifications,
-  Search,
-} from "@mui/icons-material";
-import {
+  AppBar,
   Avatar,
-  Box,
   Button,
-  Icon,
-  InputAdornment,
+  IconButton,
+  InputBase,
+  Paper,
   Stack,
-  TextField,
+  Toolbar,
   Typography,
 } from "@mui/material";
+import {
+  AppsRounded,
+  HelpOutlined,
+  Notifications,
+  Search,
+  SettingsOutlined,
+} from "@mui/icons-material";
+import { JiraIcon } from "@atlaskit/logo";
+import React from "react";
+import { navbarData } from "../data/TempData";
+import CustomMenuButtonComponent from "./CustomMenuButtonComponent";
+import CreatePopUpView from "../pages/createPopUp/CreatePopUpView";
 
 export default function HeaderComponent() {
+  const [openFirst, setOpenFirst] = React.useState(false);
+
+  const handleClickOpenFirst = () => {
+    setOpenFirst(true);
+  };
+  const handleCloseFirst = () => {
+    setOpenFirst(false);
+  };
   return (
     <>
-      <Box p={1}>
-        <Stack
-          direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
-          alignItems={{ md: "center" }}
-          gap={{ xs: 2, md: 0 }}
-        >
-          <Stack direction="row" gap={1} alignItems="center">
-            <Icon>
+      <AppBar
+        sx={{
+          bgcolor: "rgb(255,255,255)",
+          color: "rgb(23, 43, 77)",
+          boxShadow: "0px 1px 2px rgba(0,0,0,0.1)",
+        }}
+        style={{
+          position: "sticky",
+        }}
+      >
+        <Toolbar sx={{ minHeight: 50, px: 3 }}>
+          <Stack direction="row" gap={1} alignItems="center" flex={1}>
+            <IconButton edge="start" sx={{ color: "rgb(23, 43, 77)" }}>
               <AppsRounded />
-            </Icon>
-            <Icon color="primary">
-              <Assignment />
-            </Icon>
-            <Typography variant="h4">Jira</Typography>
-          </Stack>
-          <Stack direction="row" gap={2} alignItems="center">
-            <TextField
-              id="input-with-icon-textfield"
-              placeholder="Search Assistant"
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <Search />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-              variant="outlined"
-            />
-            <Button startIcon={<Add />} variant="contained">
+            </IconButton>
+            <JiraIcon appearance="brand" size="small" />
+            <Typography variant="h5">Jira</Typography>
+            {navbarData.map((data, index) => (
+              <CustomMenuButtonComponent
+                key={index}
+                title={data}
+                hoverEffect={true}
+                backgroundColorProps="white"
+                colorProps="black"
+              />
+            ))}
+
+            <Button variant="contained" onClick={handleClickOpenFirst}>
               Create
             </Button>
           </Stack>
-          <Stack direction="row" alignItems="center" gap={1}>
-            <Icon>
-              <HelpOutline />
-            </Icon>
-            <Icon>
-              <Notifications />
-            </Icon>
-            <Avatar src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fHww" />
+          <CreatePopUpView handleClose={handleCloseFirst} open={openFirst} />
+
+          <Stack direction="row" gap={1} alignItems="center">
+            <Paper
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                px: 1,
+                py: 0.3,
+                border: "1px solid rgba(0,0,0,0.15)",
+                borderRadius: "6px",
+                bgcolor: "rgb(250,250,250)",
+              }}
+              elevation={0}
+            >
+              <Search sx={{ color: "rgba(0,0,0,0.6)" }} />
+              <InputBase placeholder="Search" sx={{ ml: 1, fontSize: 14 }} />
+            </Paper>
+
+            <IconButton>
+              <Notifications
+                sx={{ color: "rgb(23, 43, 77)", transform: "rotate(30deg)" }}
+              />
+            </IconButton>
+            <IconButton>
+              <HelpOutlined sx={{ color: "rgb(23, 43, 77)" }} />
+            </IconButton>
+            <IconButton>
+              <SettingsOutlined sx={{ color: "rgb(23, 43, 77)" }} />
+            </IconButton>
+
+            <Avatar alt="Abhi" src="..." sx={{ width: 32, height: 32 }} />
           </Stack>
-        </Stack>
-      </Box>
+        </Toolbar>
+      </AppBar>
     </>
   );
 }
