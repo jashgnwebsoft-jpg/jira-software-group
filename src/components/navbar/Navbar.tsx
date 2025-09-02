@@ -19,8 +19,18 @@ import {
 import { JiraIcon } from "@atlaskit/logo";
 import CustomMenuButtonComponent from "../CustomMenuButtonComponent";
 import { navbarData } from "../../data/TempData";
+import Screen1 from "../Screen1";
+import React from "react";
 
 export default function Navbar() {
+  const [openFirst, setOpenFirst] = React.useState(false);
+
+  const handleClickOpenFirst = () => {
+    setOpenFirst(true);
+  };
+  const handleCloseFirst = () => {
+    setOpenFirst(false);
+  };
   return (
     <>
       <AppBar
@@ -50,8 +60,9 @@ export default function Navbar() {
               />
             ))}
 
-            <Button variant="contained">Create</Button>
+            <Button variant="contained" onClick={handleClickOpenFirst}>Create</Button>
           </Stack>
+          <Screen1 handleClose={handleCloseFirst} open={openFirst} />
 
           <Stack direction="row" gap={1} alignItems="center">
             <Paper
