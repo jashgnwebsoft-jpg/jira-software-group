@@ -40,8 +40,9 @@ export default function Navbar() {
             </IconButton>
             <JiraIcon appearance="brand" size="small" />
             <Typography variant="h5">Jira</Typography>
-            {navbarData.map((data) => (
+            {navbarData.map((data, index) => (
               <CustomMenuButtonComponent
+                key={index}
                 title={data}
                 hoverEffect={true}
                 backgroundColorProps="white"
