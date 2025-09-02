@@ -4,7 +4,7 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
-import { BootstrapDialog } from "./utils/CustomizedComponents";
+import { BootstrapDialog } from "./CustomizedComponents";
 import {
   Accordion,
   AccordionDetails,
@@ -33,9 +33,9 @@ import {
   VisibilityOutlined,
   Warning,
 } from "@mui/icons-material";
-import CustomizedMenus from "./utils/CustomizedMenus";
-import CommentBox from "./components/CommentBox";
-import DynamicPage from "./components/Dynamic";
+import CustomizedMenus from "./CustomizedMenus";
+import CommentBox from "../components/CommentBox";
+import DynamicPage from "../components/Dynamic";
 
 type Props = {
   open: boolean;
