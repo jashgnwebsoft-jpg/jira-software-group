@@ -24,6 +24,7 @@ import {
   Collapse,
   LinearProgress,
   linearProgressClasses,
+  Modal,
   Stack,
   styled,
   Typography,
@@ -47,9 +48,24 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 function Row(props: { row: Goal }) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+  const [modalopen, setModalOpen] = React.useState(false);
+  const handleModalOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
 
   return (
     <React.Fragment>
@@ -121,6 +137,9 @@ function Row(props: { row: Goal }) {
             variant="determinate"
           />
         </TableCell>
+        <TableCell>
+          <Typography>{row.progress} %</Typography>
+        </TableCell>
         <TableCell align="left">
           <Button
             startIcon={<DateRangeOutlined />}
@@ -144,8 +163,24 @@ function Row(props: { row: Goal }) {
           </Button>
         </TableCell>
         <TableCell>
-          <IconButton>
+          <IconButton onClick={handleModalOpen}>
             <MoreHoriz />
+            <Modal
+              open={modalopen}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Box sx={style}>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Text in a modal
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  Duis mollis, est non commodo luctus, nisi erat porttitor
+                  ligula.
+                </Typography>
+              </Box>
+            </Modal>
           </IconButton>
         </TableCell>
       </TableRow>
@@ -192,6 +227,7 @@ export default function CollapsibleTableComponent() {
             <TableCell />
             <TableCell align="left">Status</TableCell>
             <TableCell align="left">Progress</TableCell>
+            <TableCell />
             <TableCell align="left">Target Date</TableCell>
             <TableCell align="left">Owner</TableCell>
             <TableCell align="left">Last update</TableCell>
