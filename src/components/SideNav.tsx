@@ -55,8 +55,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-// const DrawerHeader = styled("div")(({ theme }) => ({
-//   display: "flex",
 //   alignItems: "center",
 //   justifyContent: "space-between",
 //   padding: theme.spacing(0, 1),
@@ -135,52 +133,12 @@ export default function SideNav() {
   const handleSelectedMenuChanged = (index: number) => {
     setMenuSelected(index);
   };
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
 
       <Drawer variant="permanent" open={open}>
-        {/* <DrawerHeader>
-          <Stack
-            direction="row"
-            alignItems={"center"}
-            gap={1}
-            justifyContent="flex-start"
-          >
-             <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                marginRight: 2,
-              },
-              open && { display: "none" },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
-            <GridViewIcon fontSize="small" />
-            <img height={20} width={20} src="/src/assets/jira-logo.png" />
-
-            <Typography variant="h5" component="h2">
-              Jira
-            </Typography>
-          </Stack>
-
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? <ChevronRight /> : <ChevronLeft />}
-          </IconButton>
-        </DrawerHeader> */}
         <Divider />
         <List>
           <Link

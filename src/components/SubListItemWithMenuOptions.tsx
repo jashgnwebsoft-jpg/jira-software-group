@@ -4,19 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { alpha, ListItemIcon, ListItemText, Stack } from "@mui/material";
-
-export type MainListMenuItem = {
-  listItems: SubListItemWithMenuType[];
-};
-
-export type SubListItemWithMenuType = {
-  text: string;
-  iconData: React.ReactNode;
-  isSelected: boolean;
-  isSubList: boolean;
-  subListItems: MainListMenuItem | null;
-  onClickFunction: () => void;
-};
+import type { MainListMenuItem } from "../types/SubListMenuType";
 
 export default function SubListItemWithMenuOptions(menuList: MainListMenuItem) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -59,39 +47,40 @@ export default function SubListItemWithMenuOptions(menuList: MainListMenuItem) {
           },
         }}
       >
-        {menuList.listItems.map((item, index) => {
-          return (
-            <Stack key={index} direction="row">
-              <MenuItem
-                key={item.text}
-                selected={item.isSelected}
-                onClick={() => {
-                  item.onClickFunction();
-                  handleSelectItems(index);
-                }}
-                sx={{
-                  pb: 1,
-                  borderRadius: 3,
-                  borderColor: "blue",
-                  borderLeft: index == selected ? "3px solid blue" : "",
-                  backgroundColor: alpha(
-                    index == selected ? "#72cff8" : "#ffffffff",
-                    0.2
-                  ),
-                }}
-              >
-                <ListItemIcon>{item.iconData}</ListItemIcon>
-                <ListItemText sx={{ px: 1 }}>{item.text}</ListItemText>
-              </MenuItem>
-              
-              {item.isSubList && (
-                <SubListItemWithMenuOptions
-                  listItems={item.subListItems?.listItems}
-                />
-              )}
-            </Stack>
-          );
-        })}
+        {menuList &&
+          menuList?.listItems?.map((item, index) => {
+            return (
+              <Stack key={index} direction="row">
+                <MenuItem
+                  key={item.text}
+                  selected={item.isSelected}
+                  onClick={() => {
+                    item.onClickFunction();
+                    handleSelectItems(index);
+                  }}
+                  sx={{
+                    pb: 1,
+                    borderRadius: 3,
+                    borderColor: "blue",
+                    borderLeft: index == selected ? "3px solid blue" : "",
+                    backgroundColor: alpha(
+                      index == selected ? "#72cff8" : "#ffffffff",
+                      0.2
+                    ),
+                  }}
+                >
+                  <ListItemIcon>{item.iconData}</ListItemIcon>
+                  <ListItemText sx={{ px: 1 }}>{item.text}</ListItemText>
+                </MenuItem>
+
+                {item.isSubList && (
+                  <SubListItemWithMenuOptions
+                    listItems={item.subListItems?.listItems}
+                  />
+                )}
+              </Stack>
+            );
+          })}
       </Menu>
     </div>
   );

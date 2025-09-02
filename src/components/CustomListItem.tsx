@@ -28,9 +28,9 @@ export default function CustomListItem(props: ListProps) {
     setOpenNestedList(!openNestedList);
     allItemsClick(props.text);
   };
-  const allItemsClick = (item: string)=>{
+  const allItemsClick = (item: string) => {
     console.log(item);
-  }
+  };
   const handleNotNestedList = () => {
     console.log("no nested list available");
     allItemsClick(props.text);
@@ -49,8 +49,11 @@ export default function CustomListItem(props: ListProps) {
           mx: 2,
           borderColor: "primary",
           borderLeft: props.isSelected ? "3px solid" : "",
-          backgroundColor: alpha(props.isSelected ? "#72cff8" : "#ffffffff", 0.3),
-          fontSize: 15
+          backgroundColor: alpha(
+            props.isSelected ? "#72cff8" : "#ffffffff",
+            0.3
+          ),
+          fontSize: 15,
           // backgroundColor: '#72cff8' ,
         }}
       >
@@ -92,7 +95,6 @@ export default function CustomListItem(props: ListProps) {
           <ListItemText
             primary={props.text}
             sx={[
-            
               props.open
                 ? {
                     opacity: 1,
@@ -130,7 +132,8 @@ export default function CustomListItem(props: ListProps) {
             {props.listItems?.map((item, index) => {
               console.log(item);
               return (
-                <CustomListItem key={index}
+                <CustomListItem
+                  key={index}
                   text={item.text}
                   isSubList={item.isSubList}
                   open={true}
