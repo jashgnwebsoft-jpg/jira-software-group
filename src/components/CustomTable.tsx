@@ -6,7 +6,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Avatar, Box, Pagination, Stack, Typography } from "@mui/material";
-import { grey } from "@mui/material/colors";
 import { issues } from "../data/tempDataNew";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import TaskIcon from "@mui/icons-material/Task";
@@ -38,9 +37,9 @@ export default function CustomTable() {
     <>
       <Box
         sx={{
-          width: "99%",
+          width: "98%",
           overflow: "hidden",
-          margin: 2,
+          m: 2,
           borderBottom: "1px solid #d8d8d8ff",
           boxShadow: "inset -4px 0 6px -2px rgba(0,0,0,0.2)",
         }}
@@ -71,12 +70,11 @@ export default function CustomTable() {
                       width: column.width,
                       pl: column.pl,
                       pr: column.pr,
-                      fontWeight: "bold",
-                      fontSize: "17px",
-                      color: grey[700],
                     }}
                   >
-                    {column.label}
+                    <Typography color="grey" fontWeight="bold">
+                      {column.label}
+                    </Typography>
                   </TableCell>
                 ))}
               </TableRow>
@@ -96,9 +94,6 @@ export default function CustomTable() {
                       cursor: "pointer",
                       backgroundColor:
                         selectedRow === row.key ? "#a9c3e4ff" : "",
-                      // "&.hover": {
-                      //   bgcolor: "#ee004fff",
-                      // },
                     }}
                   >
                     <TableCell>
