@@ -6,13 +6,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { Avatar, Box, Pagination, Stack, Typography } from "@mui/material";
-import { issues } from "../data/tempDataNew";
 import BugReportIcon from "@mui/icons-material/BugReport";
 import TaskIcon from "@mui/icons-material/Task";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline"; // fallback
 import { Campaign } from "@mui/icons-material";
 import SyncIcon from "@mui/icons-material/Sync";
-import { issueColumnsData } from "../data/TempData";
+import { issueColumnsData, issues } from "../data/TempData";
 
 const hideScrollbar = {
   "&::-webkit-scrollbar": { display: "none" },

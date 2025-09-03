@@ -7,3 +7,17 @@ export type issueColumns = {
   pl?: number;
   pr?: number;
 };
+
+export type User = {
+  id: string;
+  name: string;
+  avatarUrl: string;
+};
+
+export type IssueRow = {
+  key: string;
+  type: string;
+  summary: string;
+  assignee?: User;
+  reporter: User;
+};
