@@ -11,9 +11,7 @@ export default function GoalPageView() {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Typography variant="h4" fontWeight={700}>
-            Goals
-          </Typography>
+          <Typography variant="h4">Goals</Typography>
           <IconButton
             aria-label="Add"
             sx={(theme) => ({
