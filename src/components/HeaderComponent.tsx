@@ -3,8 +3,6 @@ import {
   Avatar,
   Button,
   IconButton,
-  InputBase,
-  Paper,
   Stack,
   Toolbar,
   Typography,
@@ -13,7 +11,6 @@ import {
   AppsRounded,
   HelpOutlined,
   Notifications,
-  Search,
   SettingsOutlined,
 } from "@mui/icons-material";
 import { JiraIcon } from "@atlaskit/logo";
@@ -21,6 +18,7 @@ import React from "react";
 import { navbarData } from "../data/TempData";
 import CustomMenuButtonComponent from "./CustomMenuButtonComponent";
 import CreatePopUpView from "../pages/createPopUp/CreatePopUpView";
+import CustomizedSearchComponent from "./CustomizedSearchComponent";
 
 export default function HeaderComponent() {
   const [openFirst, setOpenFirst] = React.useState(false);
@@ -67,22 +65,7 @@ export default function HeaderComponent() {
           <CreatePopUpView handleClose={handleCloseFirst} open={openFirst} />
 
           <Stack direction="row" gap={1} alignItems="center">
-            <Paper
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                px: 1,
-                py: 0.3,
-                border: "1px solid rgba(0,0,0,0.15)",
-                borderRadius: "6px",
-                bgcolor: "rgb(250,250,250)",
-              }}
-              elevation={0}
-            >
-              <Search sx={{ color: "rgba(0,0,0,0.6)" }} />
-              <InputBase placeholder="Search" sx={{ ml: 1, fontSize: 14 }} />
-            </Paper>
-
+            <CustomizedSearchComponent iconSide="start" border="1px solid rgba(0,0,0,0.15)" borderRadius="6px" placeholder="search" />
             <IconButton>
               <Notifications
                 sx={{ color: "rgb(23, 43, 77)", transform: "rotate(30deg)" }}

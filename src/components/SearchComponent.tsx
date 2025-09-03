@@ -9,12 +9,12 @@ export default function SearchComponent() {
     <Box
       component="form"
       sx={{
-        p: "2px 2px",
+        p: "2px 3px",
         display: "flex",
         alignItems: "center",
         width: 200,
         border: "1px solid grey",
-        height: 30,
+        height: 35,
         borderRadius: 1,
         backgroundColor: grey[100],
       }}
