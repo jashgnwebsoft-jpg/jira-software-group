@@ -9,10 +9,9 @@ import {
 import { Menu } from "@mui/icons-material";
 import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
 
-import Search from "../../components/SearchComponent";
 import { issueButtonTitle } from "../../data/TempData";
 import ReactVirtualizedTable from "../../components/VirtualizationTable";
-
+import CustomizedSearchComponent from "../../components/CustomizedSearchComponent";
 
 export default function IssueView() {
   return (
@@ -62,8 +61,12 @@ export default function IssueView() {
         >
           <Stack direction={"row"} gap={1}>
             {/* <Search /> */}
-            <CustomizedSearchComponent iconSide="end" border="1px solid rgba(0,0,0,0.15)" borderRadius="6px" />
-           
+            <CustomizedSearchComponent
+              iconSide="end"
+              border="1px solid rgba(0,0,0,0.15)"
+              borderRadius="6px"
+            />
+
             {issueButtonTitle.map((data) => (
               <CustomMenuButtonComponent
                 hoverEffect={false}
