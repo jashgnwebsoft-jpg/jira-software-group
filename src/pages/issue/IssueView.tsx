@@ -8,9 +8,11 @@ import {
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
-import CustomTable from "../../components/CustomTable";
+
+import Search from "../../components/SearchComponent";
 import { issueButtonTitle } from "../../data/TempData";
-import CustomizedSearchComponent from "../../components/CustomizedSearchComponent";
+import ReactVirtualizedTable from "../../components/VirtualizationTable";
+
 
 export default function IssueView() {
   return (
@@ -85,8 +87,9 @@ export default function IssueView() {
             Switch to detail view
           </Button>
         </Stack>
-
-        <CustomTable />
+        <Box py={2}>
+          <ReactVirtualizedTable />
+        </Box>
       </Box>
     </>
   );
