@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import NotFoundPage from "../pages/notFound/NotFoundPage";
 import Index from "../pages";
 import SubtaskView from "../pages/subtask/SubtaskView";
@@ -11,6 +11,7 @@ const router = createBrowserRouter([
     path: "*",
     Component: NotFoundPage,
   },
+  { path: "/", element: <Navigate to={"/jira"} /> },
   {
     path: "jira",
     Component: Index,
