@@ -36,6 +36,7 @@ import {
 } from "@mui/icons-material";
 import CommentBox from "../../components/TextField/CommentBoxComponent";
 import CustomMenuButtonComponent from "../../components/Button/CustomMenuButtonComponent";
+import ConditionalButtonComponent from "../../components/Button/ConditionalButtonComponent";
 
 type Props = {
   open: boolean;
@@ -218,131 +219,80 @@ export default function CreatePopUpView(prop: Props) {
                   <Typography variant="subtitle1" component="h2">
                     Show:
                   </Typography>
-                  <Button
-                    variant="outlined"
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "all" ? true : false}
+                    buttonName="All"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "all"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color: selectedBtn === "all" ? "primary" : "black",
-                      border: selectedBtn === "all" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("all");
                     }}
-                  >
-                    All
-                  </Button>
-                  <Button
-                    variant="outlined"
+                    borderRadius={"2px"}
+                  />
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "comments" ? true : false}
+                    buttonName="Comments"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "comments"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color: selectedBtn === "comments" ? "primary" : "black",
-                      border: selectedBtn === "comments" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("comments");
                     }}
-                  >
-                    Comments
-                  </Button>
-                  <Button
-                    variant="outlined"
+                    borderRadius={"2px"}
+                  />
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "history" ? true : false}
+                    buttonName="History"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "history"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color: selectedBtn === "history" ? "primary" : "black",
-                      border: selectedBtn === "history" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("history");
                     }}
-                  >
-                    History
-                  </Button>
-                  <Button
-                    variant="outlined"
+                    borderRadius={"2px"}
+                  />
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "worklog" ? true : false}
+                    buttonName="Work Log"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "worklog"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color: selectedBtn === "worklog" ? "primary" : "black",
-                      border: selectedBtn === "worklog" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("worklog");
                     }}
-                  >
-                    Work Log
-                  </Button>
-                  <Button
-                    variant="outlined"
+                    borderRadius={"2px"}
+                  />
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "transitions" ? true : false}
+                    buttonName="Transitions"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "transitions"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color:
-                        selectedBtn === "transitions" ? "primary" : "black",
-                      border: selectedBtn === "transitions" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("transitions");
                     }}
-                  >
-                    Transitions
-                  </Button>
-                  <Button
-                    variant="outlined"
+                    borderRadius={"2px"}
+                  />
+                  <ConditionalButtonComponent
+                    isSelected={
+                      selectedBtn === "checklisthistory" ? true : false
+                    }
+                    buttonName="Checklist History"
                     size="small"
-                    sx={{
-                      backgroundColor:
-                        selectedBtn === "checklisthistory"
-                          ? "rgba(149, 196, 207, 0.33)"
-                          : "rgba(102, 105, 102, 0.33)",
-                      color:
-                        selectedBtn === "checklisthistory"
-                          ? "primary"
-                          : "black",
-                      border: selectedBtn === "checklisthistory" ? "1" : "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("checklisthistory");
                     }}
-                  >
-                    Checklist history
-                  </Button>
+                    borderRadius={"2px"}
+                  />
                 </Stack>
                 <Stack direction="row" alignItems="center" gap={1}>
-                  <Button
-                    variant="outlined"
+                  <ConditionalButtonComponent
+                    isSelected={selectedBtn === "newestfirst" ? true : false}
+                    buttonName="Newest First"
                     size="small"
-                    sx={{
-                      backgroundColor: "none",
-                      color: "black",
-                      border: "none",
-                    }}
-                    onClick={() => {
+                    onBtnClick={() => {
                       setSelectedBtn("newestfirst");
                     }}
-                  >
-                    <Typography variant="subtitle1" component="h2">
-                      Newest first
-                    </Typography>
-                    <SortOutlined />
-                  </Button>
+                    bgColor="none"
+                    defaultColor="black"
+                    selectedColor="black"
+                    defaultBgColor="none"
+                    selectedBgColor="none"
+                    borderRadius={"2px"}
+                    icon={<SortOutlined />}
+                    iconSide="end"
+                  />
                 </Stack>
               </Stack>
               {selectedBtn === "all" && <Typography>ALL</Typography>}
