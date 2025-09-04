@@ -1,16 +1,20 @@
 import * as React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { TableVirtuoso, type TableComponents } from "react-virtuoso";
-import { Avatar, Stack, Typography } from "@mui/material";
+import {
+  Avatar,
+  Paper,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import { BugReport, TaskOutlined } from "@mui/icons-material";
+import { TableVirtuoso, type TableComponents } from "react-virtuoso";
 import type { IssueRow, User } from "../../types/IssueType";
-import { issues } from "../../data/TempData";
+import { useIssues } from "../../services/queries";
 
 interface ColumnData {
   dataKey: keyof IssueRow;
@@ -47,11 +51,6 @@ const columns: ColumnData[] = [
   },
 ];
 
-const rows: IssueRow[] = Array.from(
-  { length: 30 },
-  (_, index) => issues[index]
-);
-
 const VirtuosoTableComponents: TableComponents<IssueRow> = {
   Scroller: React.forwardRef<HTMLDivElement>((props, ref) => (
     <TableContainer component={Paper} {...props} ref={ref} />
@@ -73,7 +72,7 @@ const VirtuosoTableComponents: TableComponents<IssueRow> = {
 
 function RenderAssigner({ avatarUrl, name, id }: User) {
   return (
-    <Stack direction={"row"} alignItems={"center"} gap={1} key={id}>
+    <Stack direction="row" alignItems="center" gap={1} key={id}>
       <Avatar src={avatarUrl} alt={name} />
       <Typography>{name}</Typography>
     </Stack>
@@ -87,16 +86,14 @@ function fixedHeaderContent() {
         <TableCell
           key={column.dataKey}
           variant="head"
-          align={column.numeric || false ? "right" : "left"}
+          align={column.numeric ? "right" : "left"}
           style={{ width: column.width }}
           sx={{
             backgroundColor: "background.paper",
-            borderBottom: " 2px",
-            borderTop: "0px",
-            borderLeft: "0px",
-            borderRight: "0px",
-            borderColor: "black",
-            borderStyle: "solid",
+            borderBottom: "2px solid black",
+            borderTop: "none",
+            borderLeft: "none",
+            borderRight: "none",
           }}
         >
           {column.label}
@@ -108,24 +105,24 @@ function fixedHeaderContent() {
 
 function rowContent(_index: number, row: IssueRow) {
   return (
-    <React.Fragment>
+    <React.Fragment key={row.key}>
       {columns.map((column) => (
         <TableCell
           key={column.dataKey}
-          align={column.numeric || false ? "right" : "left"}
+          align={column.numeric ? "right" : "left"}
         >
-          {column.label === "Type" ? (
-            row[column.dataKey] === "Bug" ? (
+          {column.dataKey === "type" ? (
+            row.type === "Bug" ? (
               <BugReport color="error" />
             ) : (
               <TaskOutlined color="success" />
             )
           ) : column.dataKey === "summary" ? (
-            <Typography fontSize={18} fontWeight="bold" color="primary">
-              {row[column.dataKey]}
+            <Typography fontSize={18} fontWeight="bold" color="primary" noWrap>
+              {row.summary}
             </Typography>
-          ) : column.dataKey === "reporter" || column.dataKey === "assignee" ? (
-            RenderAssigner(row[column.dataKey])
+          ) : column.dataKey === "assignee" || column.dataKey === "reporter" ? (
+            <RenderAssigner {...(row[column.dataKey] as User)} />
           ) : (
             row[column.dataKey]
           )}
@@ -136,14 +133,30 @@ function rowContent(_index: number, row: IssueRow) {
 }
 
 export default function ReactVirtualizedTable() {
+  const { data, isLoading, error } = useIssues();
+
+  const rows: IssueRow[] = data ?? [];
+
   return (
     <Paper style={{ height: 630, width: "100%" }}>
-      <TableVirtuoso
-        data={rows}
-        components={VirtuosoTableComponents}
-        fixedHeaderContent={fixedHeaderContent}
-        itemContent={rowContent}
-      />
+      {isLoading && (
+        <Typography variant="body1" sx={{ p: 2 }}>
+          Data coming soon...
+        </Typography>
+      )}
+      {error && (
+        <Typography variant="body1" color="error" sx={{ p: 2 }}>
+          An error occurred while loading data.
+        </Typography>
+      )}
+      {!isLoading && !error && data && (
+        <TableVirtuoso
+          data={rows}
+          components={VirtuosoTableComponents}
+          fixedHeaderContent={fixedHeaderContent}
+          itemContent={rowContent}
+        />
+      )}
     </Paper>
   );
 }

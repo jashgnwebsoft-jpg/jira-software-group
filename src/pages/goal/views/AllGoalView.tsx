@@ -19,6 +19,7 @@ import {
 import CollapsibleTableComponent from "../../../components/Table/CollapsibleTableComponent";
 
 export default function AllGoalView() {
+  
   return (
     <>
       <Box>
