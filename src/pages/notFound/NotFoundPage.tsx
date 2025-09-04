@@ -1,4 +1,4 @@
-import { Button, Grow, Stack, Typography } from "@mui/material";
+import { Box, Button, Grow, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router";
 
 export default function NotFoundPage() {
@@ -12,8 +12,16 @@ export default function NotFoundPage() {
           height="100vh"
           gap={3}
         >
+          <Box
+            component="img"
+            src="/src/assets/illustration-404.svg"
+            sx={{
+              width: 320,
+              height: "auto",
+            }}
+          />
           <Typography component="h1" variant="h1">
-            404 Page Not Found
+            Page Not Found
           </Typography>
           <NavLink to="/jira/subtaskview">
             <Button variant="contained">Go to Page</Button>
