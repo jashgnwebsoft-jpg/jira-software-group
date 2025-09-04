@@ -13,12 +13,12 @@ import {
   Notifications,
   SettingsOutlined,
 } from "@mui/icons-material";
-import { JiraIcon } from "@atlaskit/logo";
 import React from "react";
 import { navbarData } from "../../data/TempData";
 import CreatePopUpView from "../../pages/createPopUp/CreatePopUpView";
 import CustomMenuButtonComponent from "../Button/CustomMenuButtonComponent";
 import CustomizedSearchComponent from "../TextField/CustomizedSearchComponent";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default function HeaderComponent() {
   const [openFirst, setOpenFirst] = React.useState(false);
@@ -46,7 +46,7 @@ export default function HeaderComponent() {
             <IconButton edge="start" sx={{ color: "rgb(23, 43, 77)" }}>
               <AppsRounded />
             </IconButton>
-            <JiraIcon appearance="brand" size="small" />
+            <Icon icon="mdi:jira" width="24" height="24" color="#1976d2" />
             <Typography variant="h5">Jira</Typography>
             {navbarData.map((data, index) => (
               <CustomMenuButtonComponent

@@ -8,7 +8,7 @@ export default function CommentBox() {
       <Avatar
         alt="Travis Howard"
         src="https://static.vecteezy.com/system/resources/thumbnails/027/951/137/small_2x/stylish-spectacles-guy-3d-avatar-character-illustrations-png.png"
-        sx={{ width: 40, height: 40, marginX: "auto" }} 
+        sx={{ width: 40, height: 40, marginX: "auto" }}
       />
       <Box width={"90%"}>
         <Box border={2} borderRadius={1} borderColor={grey[400]} p={1}>
@@ -52,7 +52,7 @@ export default function CommentBox() {
           <Typography variant="subtitle1" fontWeight={"bold"} component="h2">
             Pro tip:
           </Typography>
-          <Typography>
+          <Typography component="span">
             press <Chip label="M" style={{ borderRadius: 2 }} size="small" /> to
             comment
           </Typography>
