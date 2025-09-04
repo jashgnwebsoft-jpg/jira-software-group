@@ -52,6 +52,14 @@ const BootstrapDialog = styled(Dialog)(() => ({
     display: "none",
   },
 }));
+const buttons = [
+  { key: "all", label: "All" },
+  { key: "comments", label: "Comments" },
+  { key: "history", label: "History" },
+  { key: "worklog", label: "Work Log" },
+  { key: "transitions", label: "Transitions" },
+  { key: "checklisthistory", label: "Checklist History" },
+];
 export default function CreatePopUpView(prop: Props) {
   const { handleClose, open } = prop;
   const [asset, setAsset] = React.useState<string>("");
@@ -217,62 +225,16 @@ export default function CreatePopUpView(prop: Props) {
                   <Typography variant="subtitle1" component="h2">
                     Show:
                   </Typography>
-                  <ConditionalButtonComponent
-                    isSelected={selectedBtn === "all" ? true : false}
-                    buttonName="All"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("all");
-                    }}
-                    borderRadius={"2px"}
-                  />
-                  <ConditionalButtonComponent
-                    isSelected={selectedBtn === "comments" ? true : false}
-                    buttonName="Comments"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("comments");
-                    }}
-                    borderRadius={"2px"}
-                  />
-                  <ConditionalButtonComponent
-                    isSelected={selectedBtn === "history" ? true : false}
-                    buttonName="History"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("history");
-                    }}
-                    borderRadius={"2px"}
-                  />
-                  <ConditionalButtonComponent
-                    isSelected={selectedBtn === "worklog" ? true : false}
-                    buttonName="Work Log"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("worklog");
-                    }}
-                    borderRadius={"2px"}
-                  />
-                  <ConditionalButtonComponent
-                    isSelected={selectedBtn === "transitions" ? true : false}
-                    buttonName="Transitions"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("transitions");
-                    }}
-                    borderRadius={"2px"}
-                  />
-                  <ConditionalButtonComponent
-                    isSelected={
-                      selectedBtn === "checklisthistory" ? true : false
-                    }
-                    buttonName="Checklist History"
-                    size="small"
-                    onBtnClick={() => {
-                      setSelectedBtn("checklisthistory");
-                    }}
-                    borderRadius={"2px"}
-                  />
+                  {buttons.map(({ key, label }) => (
+                    <ConditionalButtonComponent
+                      key={key}
+                      isSelected={selectedBtn === key}
+                      buttonName={label}
+                      size="small"
+                      onBtnClick={() => setSelectedBtn(key)}
+                      borderRadius="2px"
+                    />
+                  ))}
                 </Stack>
                 <Stack direction="row" alignItems="center" gap={1}>
                   <ConditionalButtonComponent
@@ -390,9 +352,7 @@ export default function CreatePopUpView(prop: Props) {
                             expandIcon={<ExpandMore color="primary" />}
                           >
                             <Stack direction="row" alignItems={"center"}>
-                              <IconButton>
-                                <Settings color="primary" />
-                              </IconButton>
+                              <Settings color="primary" />
                               <Typography
                                 variant="body1"
                                 color="primary"
@@ -429,9 +389,7 @@ export default function CreatePopUpView(prop: Props) {
                                 flexItem
                               />
                               <Stack direction="row" alignItems={"center"}>
-                                <IconButton>
-                                  <AccountTreeOutlined color="primary" />
-                                </IconButton>
+                                <AccountTreeOutlined color="primary" />
                                 <Typography
                                   variant="body1"
                                   color="primary"
@@ -471,9 +429,7 @@ export default function CreatePopUpView(prop: Props) {
                             expandIcon={<ExpandMore color="primary" />}
                           >
                             <Stack direction="row" alignItems={"center"}>
-                              <IconButton>
-                                <Settings color="primary" />
-                              </IconButton>
+                              <Settings color="primary" />
                               <Typography
                                 variant="body1"
                                 color="primary"
@@ -555,7 +511,6 @@ export default function CreatePopUpView(prop: Props) {
                                   direction={"row"}
                                   justifyContent={"flex-end"}
                                 >
-                                  {" "}
                                   <InputBase
                                     sx={{ ml: 1, flex: 1 }}
                                     placeholder=""
@@ -583,7 +538,6 @@ export default function CreatePopUpView(prop: Props) {
                                   direction={"row"}
                                   justifyContent={"flex-end"}
                                 >
-                                  {" "}
                                   <InputBase
                                     sx={{ ml: 1, flex: 1 }}
                                     placeholder=""
