@@ -35,7 +35,7 @@ export default function ProjectView() {
     }));
   };
 
-  const {data,isLoading,error} = useProjects();
+  const { data, isLoading, error } = useProjects();
 
   return (
     <Box border="1px solid grey" borderRadius={2} p={4}>
@@ -75,53 +75,70 @@ export default function ProjectView() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {isLoading && <Typography variant="h1">waiting for data...</Typography>}
-            {error && <Typography variant="h1">Error...!</Typography>}
-            {data && data.map((project:Project) => (
-              <TableRow key={project.id} sx={{ lineHeight: 0 }}>
-                <TableCell sx={{ borderBottom: "none", width: 50, padding: 1 }}>
-                  <Checkbox
-                    icon={<StarBorder />}
-                    checkedIcon={<Star sx={{ color: "black" }} />}
-                    checked={!!starred[project.id]}
-                    onChange={() => handleStarChange(project.id)}
-                  />
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={12}>
+                  <Typography variant="h1">waiting for data...</Typography>
                 </TableCell>
-                <StyledTableCell>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <AutoStories
-                      sx={{
-                        bgcolor: "#2a8ad9ff",
-                        color: "#ffffff",
-                        border: "2px #2a8ad9ff",
-                        borderRadius: "4px",
-                        padding: "2px",
-                      }}
-                    />
-                    <Typography fontWeight="bold" color="primary">
-                      {project.name}
-                    </Typography>
-                  </Stack>
-                </StyledTableCell>
-                <StyledTableCell>
-                  <Typography fontWeight="bold">{project.key}</Typography>
-                </StyledTableCell>
-                <StyledTableCell>
-                  <Typography fontWeight="bold">{project.type}</Typography>
-                </StyledTableCell>
-                <StyledTableCell>
-                  <Stack direction="row" spacing={2} alignItems="center">
-                    <Avatar src={project.lead.avatar} />
-                    <Typography color="primary">{project.lead.name}</Typography>
-                  </Stack>
-                </StyledTableCell>
-                <StyledTableCell>
-                  <IconButton>
-                    <MoreHoriz />
-                  </IconButton>
-                </StyledTableCell>
               </TableRow>
-            ))}
+            )}
+            {error && (
+              <TableRow>
+                <TableCell colSpan={12}>
+                  <Typography variant="h1">Error...!</Typography>
+                </TableCell>
+              </TableRow>
+            )}
+            {data &&
+              data.map((project: Project) => (
+                <TableRow key={project.id} sx={{ lineHeight: 0 }}>
+                  <TableCell
+                    sx={{ borderBottom: "none", width: 50, padding: 1 }}
+                  >
+                    <Checkbox
+                      icon={<StarBorder />}
+                      checkedIcon={<Star sx={{ color: "black" }} />}
+                      checked={!!starred[project.id]}
+                      onChange={() => handleStarChange(project.id)}
+                    />
+                  </TableCell>
+                  <StyledTableCell>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <AutoStories
+                        sx={{
+                          bgcolor: "#2a8ad9ff",
+                          color: "#ffffff",
+                          border: "2px #2a8ad9ff",
+                          borderRadius: "4px",
+                          padding: "2px",
+                        }}
+                      />
+                      <Typography fontWeight="bold" color="primary">
+                        {project.name}
+                      </Typography>
+                    </Stack>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Typography fontWeight="bold">{project.key}</Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Typography fontWeight="bold">{project.type}</Typography>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Stack direction="row" spacing={2} alignItems="center">
+                      <Avatar src={project.lead.avatar} />
+                      <Typography color="primary">
+                        {project.lead.name}
+                      </Typography>
+                    </Stack>
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <IconButton>
+                      <MoreHoriz />
+                    </IconButton>
+                  </StyledTableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

@@ -28,7 +28,7 @@ import {
   styled,
   Typography,
 } from "@mui/material";
-import {  useGoals } from "../../services/queries";
+import { useGoals } from "../../services/queries";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -66,8 +66,6 @@ function Row(props: { row: Goal }) {
   const [modalopen, setModalOpen] = React.useState(false);
   const handleModalOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
-
-  
 
   return (
     <React.Fragment>
@@ -219,7 +217,7 @@ function Row(props: { row: Goal }) {
 }
 
 export default function CollapsibleTableComponent() {
-  const {data,isLoading,error} = useGoals();
+  const { data, isLoading, error } = useGoals();
 
   return (
     <TableContainer component={Paper}>
@@ -239,11 +237,26 @@ export default function CollapsibleTableComponent() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {isLoading && <Typography variant="h1">Data Will Coming Soon...</Typography>}
-          {error && <Typography variant="h1">Your Request is Not acceptable...</Typography>}
-          {data && data.map((row:Goal, index:number) => (
-            <Row key={index} row={row} />
-          ))}
+          {isLoading && (
+            <TableRow>
+              <TableCell colSpan={12}>
+                <Typography variant="h1">Data Will Coming Soon...</Typography>
+              </TableCell>
+            </TableRow>
+          )}
+          {error && (
+            <TableRow>
+              <TableCell colSpan={12}>
+                <Typography variant="h1">
+                  Your Request is Not acceptable...
+                </Typography>
+              </TableCell>
+            </TableRow>
+          )}
+          {data &&
+            data.map((row: Goal, index: number) => (
+              <Row key={index} row={row} />
+            ))}
         </TableBody>
       </Table>
     </TableContainer>
