@@ -45,15 +45,10 @@ export default function TabComponent() {
           <Tab label="All Goals" {...a11yProps(0)} />
           <Tab label="My goals" {...a11yProps(1)} />
           <Tab label="Add view" {...a11yProps(2)} />
-          <Tab
-            label={
-              <CustomMenuButtonComponent
-                title="More views"
-                backgroundColorProps="white"
-                colorProps="grey"
-              />
-            }
-            {...a11yProps(3)}
+          <CustomMenuButtonComponent
+            title="More views"
+            backgroundColorProps="white"
+            colorProps="grey"
           />
         </Tabs>
       </Box>

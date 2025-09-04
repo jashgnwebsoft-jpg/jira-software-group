@@ -1,14 +1,6 @@
-import {
-  AutoStories,
-  MoreHoriz,
-  Search,
-  Star,
-  StarBorder,
-} from "@mui/icons-material";
+import { AutoStories, MoreHoriz, Star, StarBorder } from "@mui/icons-material";
 import {
   Button,
-  InputBase,
-  Paper,
   Stack,
   TableContainer,
   TableHead,
@@ -26,6 +18,7 @@ import {
 import React from "react";
 import styled from "@emotion/styled";
 import { projects } from "../../data/TempData";
+import CustomizedSearchComponent from "../../components/TextField/CustomizedSearchComponent";
 
 const StyledTableCell = styled(TableCell)(() => ({
   borderBottom: "none",
@@ -42,29 +35,20 @@ export default function ProjectView() {
   };
 
   return (
-    <Box border="1px solid grey" borderRadius={2} py={3} px={2}>
-      <Stack direction="row" justifyContent="space-between" my={2}>
+    <Box border="1px solid grey" borderRadius={2} p={4}>
+      <Stack direction="row" justifyContent="space-between">
         <Typography variant="h4" fontWeight="bold">
           Projects
         </Typography>
         <Button variant="contained">Create Project</Button>
       </Stack>
-      <Paper
-        sx={{
-          width: 200,
-          display: "flex",
-          alignItems: "center",
-          px: 1,
-          py: 0.3,
-          border: "1px solid rgba(0,0,0,0.15)",
-          borderRadius: "6px",
-          bgcolor: "rgb(250,250,250)",
-        }}
-        elevation={0}
-      >
-        <InputBase sx={{ fontSize: 14 }} />
-        <Search sx={{ color: "rgba(0,0,0,0.6)" }} />
-      </Paper>
+      <CustomizedSearchComponent
+        iconSide="start"
+        border="1px solid rgba(0,0,0,0.15)"
+        borderRadius="6px"
+        placeholder="search"
+        width="300px"
+      />
       <TableContainer>
         <Table sx={{ borderCollapse: "collapse" }}>
           <TableHead>

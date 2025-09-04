@@ -145,7 +145,7 @@ function Row(props: { row: Goal }) {
             startIcon={<DateRangeOutlined />}
             variant="outlined"
             size="small"
-            sx={{ borderColor: "#aeaeae", color: "#615f5fff" }}
+            disabled
           >
             {row.targetDate}
           </Button>
