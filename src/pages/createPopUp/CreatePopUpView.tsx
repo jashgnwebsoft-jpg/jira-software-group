@@ -34,8 +34,8 @@ import {
   VisibilityOutlined,
   Warning,
 } from "@mui/icons-material";
-import CommentBox from "../../components/CommentBoxComponent";
-import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
+import CommentBox from "../../components/TextField/CommentBoxComponent";
+import CustomMenuButtonComponent from "../../components/Button/CustomMenuButtonComponent";
 
 type Props = {
   open: boolean;

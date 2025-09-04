@@ -1,6 +1,6 @@
 import { MoreHoriz } from "@mui/icons-material";
 import { Box, IconButton, Stack, Typography } from "@mui/material";
-import TabComponent from "../../components/TabComponent";
+import TabComponent from "../../components/Tab/TabComponent";
 
 export default function GoalPageView() {
   return (

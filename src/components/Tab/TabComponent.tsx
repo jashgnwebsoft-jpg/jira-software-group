@@ -1,9 +1,8 @@
 import { Box, Tabs, Tab, Typography } from "@mui/material";
 import React from "react";
-import type { TabPanelProps } from "../types/TabPanelType";
-import CustomMenuButtonComponent from "./CustomMenuButtonComponent";
-import AllGoalView from "../pages/goal/views/AllGoalView";
-
+import AllGoalView from "../../pages/goal/views/AllGoalView";
+import type { TabPanelProps } from "../../types/TabPanelType";
+import CustomMenuButtonComponent from "../Button/CustomMenuButtonComponent";
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -57,7 +56,7 @@ export default function TabComponent() {
           />
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0} >
+      <CustomTabPanel value={value} index={0}>
         <AllGoalView />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>

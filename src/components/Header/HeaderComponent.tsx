@@ -15,10 +15,10 @@ import {
 } from "@mui/icons-material";
 import { JiraIcon } from "@atlaskit/logo";
 import React from "react";
-import { navbarData } from "../data/TempData";
-import CustomMenuButtonComponent from "./CustomMenuButtonComponent";
-import CreatePopUpView from "../pages/createPopUp/CreatePopUpView";
-import CustomizedSearchComponent from "./CustomizedSearchComponent";
+import { navbarData } from "../../data/TempData";
+import CreatePopUpView from "../../pages/createPopUp/CreatePopUpView";
+import CustomMenuButtonComponent from "../Button/CustomMenuButtonComponent";
+import CustomizedSearchComponent from "../TextField/CustomizedSearchComponent";
 
 export default function HeaderComponent() {
   const [openFirst, setOpenFirst] = React.useState(false);
@@ -65,7 +65,12 @@ export default function HeaderComponent() {
           <CreatePopUpView handleClose={handleCloseFirst} open={openFirst} />
 
           <Stack direction="row" gap={1} alignItems="center">
-            <CustomizedSearchComponent iconSide="start" border="1px solid rgba(0,0,0,0.15)" borderRadius="6px" placeholder="search" />
+            <CustomizedSearchComponent
+              iconSide="start"
+              border="1px solid rgba(0,0,0,0.15)"
+              borderRadius="6px"
+              placeholder="search"
+            />
             <IconButton>
               <Notifications
                 sx={{ color: "rgb(23, 43, 77)", transform: "rotate(30deg)" }}

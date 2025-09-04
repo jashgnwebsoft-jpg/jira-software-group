@@ -25,7 +25,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
+import CustomMenuButtonComponent from "../../components/Button/CustomMenuButtonComponent";
 import { childIssueData, subtaskData } from "../../data/TempData";
 
 export default function SubtaskView() {

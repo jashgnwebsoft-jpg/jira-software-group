@@ -12,7 +12,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
-import CustomListItem from "./CustomListItem";
+import CustomListItem from "../List/CustomListItem";
 
 import Groups2Icon from "@mui/icons-material/Groups2";
 import TuneIcon from "@mui/icons-material/Tune";
@@ -24,14 +24,15 @@ import {
   ListItemButton,
   ListItemIcon,
 } from "@mui/material";
-import SubListItemWithMenuOptions from "./SubListItemWithMenuOptions";
+
 import {
   menuSublistItems,
   projectSubList,
   recentsSubList,
   starredSubList,
-} from "../data/sidebarLists";
+} from "../../data/sidebarLists";
 import { Link } from "react-router";
+import SubListItemWithMenuOptions from "../List/SubListItemWithMenuOptions";
 const drawerWidth = 300;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -55,40 +56,6 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-//   alignItems: "center",
-//   justifyContent: "space-between",
-//   padding: theme.spacing(0, 1),
-//   // necessary for content to be below app bar
-//   ...theme.mixins.toolbar,
-// }));
-
-// interface AppBarProps extends MuiAppBarProps {
-//   open?: boolean;
-// }
-
-// const AppBar = styled(MuiAppBar, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })<AppBarProps>(({ theme }) => ({
-//   zIndex: theme.zIndex.drawer + 1,
-//   transition: theme.transitions.create(["width", "margin"], {
-//     easing: theme.transitions.easing.sharp,
-//     duration: theme.transitions.duration.leavingScreen,
-//   }),
-//   variants: [
-//     {
-//       props: ({ open }) => open,
-//       style: {
-//         scrollbarWidth: "none",
-//         marginLeft: drawerWidth,
-//         width: `calc(100% - ${drawerWidth}px)`,
-//         transition: theme.transitions.create(["width", "margin"], {
-//           easing: theme.transitions.easing.sharp,
-//           duration: theme.transitions.duration.enteringScreen,
-//         }),
-//       },
-//     },
-//   ],
-// }));
 
 const Drawer = styled(MuiDrawer, {
   shouldForwardProp: (prop) => prop !== "open",

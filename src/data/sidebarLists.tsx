@@ -7,7 +7,7 @@ import type {
   SubListItemWithMenuType,
   MainListMenuItem,
 } from "../types/SubListMenuType";
-import type { ListProps } from "../components/CustomListItem";
+import type { ListProps } from "../components/List/CustomListItem";
 
 export const projectSubList: ListProps[] = [
   {
