@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { alpha, ListItemIcon, ListItemText, Stack } from "@mui/material";
-import type { MainListMenuItem } from "../types/SubListMenuType";
+import type { MainListMenuItem } from "../../types/SubListMenuType";
 
 export default function SubListItemWithMenuOptions(menuList: MainListMenuItem) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

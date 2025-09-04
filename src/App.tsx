@@ -1,16 +1,10 @@
 import { createTheme } from "@mui/material";
 import { ThemeProvider, type Theme } from "@emotion/react";
 import { RouterProvider } from "react-router";
-import router from "./Routes/Routes";
-
-// const { palette } = createTheme();
+import router from "./routes/Routes";
 
 const theme: Theme = createTheme({
-  palette: {
-    // primary: {
-    //   myCutomColor: palette.augmentColor({ color: { main: "#aeaeae" } }),
-    // },
-  },
+  palette: {},
 });
 
 function App() {
