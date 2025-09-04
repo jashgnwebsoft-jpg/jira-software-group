@@ -17,8 +17,9 @@ import {
 
 import React from "react";
 import styled from "@emotion/styled";
-import { projects } from "../../data/TempData";
 import CustomizedSearchComponent from "../../components/TextField/CustomizedSearchComponent";
+import { useProjects } from "../../services/queries";
+import type { Project } from "../../types/Project";
 
 const StyledTableCell = styled(TableCell)(() => ({
   borderBottom: "none",
@@ -33,6 +34,8 @@ export default function ProjectView() {
       [id]: !prev[id],
     }));
   };
+
+  const {data,isLoading,error} = useProjects();
 
   return (
     <Box border="1px solid grey" borderRadius={2} p={4}>
@@ -72,7 +75,9 @@ export default function ProjectView() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {projects.map((project) => (
+            {isLoading && <Typography variant="h1">waiting for data...</Typography>}
+            {error && <Typography variant="h1">Error...!</Typography>}
+            {data && data.map((project:Project) => (
               <TableRow key={project.id} sx={{ lineHeight: 0 }}>
                 <TableCell sx={{ borderBottom: "none", width: 50, padding: 1 }}>
                   <Checkbox
