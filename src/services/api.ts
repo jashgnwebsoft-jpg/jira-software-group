@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3000/";
+const BASE_URL = "http://192.168.1.8:3000/";
 const axiosInstance = axios.create({ baseURL: BASE_URL });
 
 export const fetchIssues = async () => {
