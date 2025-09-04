@@ -67,8 +67,9 @@ export default function IssueView() {
               borderRadius="6px"
             />
 
-            {issueButtonTitle.map((data) => (
+            {issueButtonTitle.map((data, index) => (
               <CustomMenuButtonComponent
+                key={index}
                 hoverEffect={false}
                 title={data}
                 backgroundColorProps="grey.100"

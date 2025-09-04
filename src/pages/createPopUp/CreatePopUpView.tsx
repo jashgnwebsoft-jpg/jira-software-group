@@ -57,8 +57,6 @@ export default function CreatePopUpView(prop: Props) {
   const [mouse, setMouse] = React.useState<string>("");
   const [selectedBtn, setSelectedBtn] = React.useState<string>("comments");
 
-  console.log("selected BTN", selectedBtn);
-
   return (
     <React.Fragment>
       <BootstrapDialog

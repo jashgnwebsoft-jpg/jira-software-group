@@ -3,6 +3,7 @@ import React from "react";
 import AllGoalView from "../../pages/goal/views/AllGoalView";
 import type { TabPanelProps } from "../../types/TabPanelType";
 import CustomMenuButtonComponent from "../Button/CustomMenuButtonComponent";
+
 function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -39,7 +40,7 @@ export default function TabComponent() {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="basic tabs example"
+          aria-label="custom tab coponent"
         >
           <Tab label="All Goals" {...a11yProps(0)} />
           <Tab label="My goals" {...a11yProps(1)} />
