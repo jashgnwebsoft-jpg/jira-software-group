@@ -1,6 +1,5 @@
 import { Button, Grow, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router";
-import ReactVirtualizedTable from "../../components/VirtualizationTable";
 
 export default function NotFoundPage() {
   return (
@@ -13,13 +12,12 @@ export default function NotFoundPage() {
           height="100vh"
           gap={3}
         >
-          {/* <Typography component="h1" variant="h1">
+          <Typography component="h1" variant="h1">
             404 Page Not Found
           </Typography>
           <NavLink to="/jira/subtaskview">
             <Button variant="contained">Go to Page</Button>
-          </NavLink> */}
-          <ReactVirtualizedTable />
+          </NavLink>
         </Stack>
       </Grow>
     </>

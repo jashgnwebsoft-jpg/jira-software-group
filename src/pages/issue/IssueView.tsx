@@ -7,11 +7,11 @@ import {
   Typography,
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
-import CustomMenuButtonComponent from "../../components/CustomMenuButtonComponent";
+import CustomMenuButtonComponent from "../../components/Button/CustomMenuButtonComponent";
 
 import { issueButtonTitle } from "../../data/TempData";
-import ReactVirtualizedTable from "../../components/VirtualizationTable";
-import CustomizedSearchComponent from "../../components/CustomizedSearchComponent";
+import CustomizedSearchComponent from "../../components/TextField/CustomizedSearchComponent";
+import ReactVirtualizedTable from "../../components/Table/VirtualizationTable";
 
 export default function IssueView() {
   return (

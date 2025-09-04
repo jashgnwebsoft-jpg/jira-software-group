@@ -14,8 +14,8 @@ import {
   ModeStandbyOutlined,
   MoreHoriz,
 } from "@mui/icons-material";
-import type { Goal } from "../types/GoalType";
-import { goals } from "../data/TempData";
+import type { Goal } from "../../types/GoalType";
+import { goals } from "../../data/TempData";
 import {
   Avatar,
   Box,

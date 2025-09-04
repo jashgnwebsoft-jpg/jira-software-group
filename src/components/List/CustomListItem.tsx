@@ -20,8 +20,6 @@ export type ListProps = {
 };
 
 export default function CustomListItem(props: ListProps) {
-  // const [subOpen, setSubOpen] = useState(false);
-
   const [openNestedList, setOpenNestedList] = useState(false);
   const handleNestedListClick = () => {
     console.log(props.listItems);

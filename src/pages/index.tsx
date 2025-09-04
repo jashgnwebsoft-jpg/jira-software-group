@@ -1,8 +1,7 @@
 import { Grid, Stack } from "@mui/material";
-// import HeaderComponent from "../components/HeaderComponent";
 import { Outlet } from "react-router";
-import SideNav from "../components/SideNavComponent";
-import HeaderComponent from "../components/HeaderComponent";
+import SideNav from "../components/Drawer/SideNavComponent";
+import HeaderComponent from "../components/Header/HeaderComponent";
 
 export default function Index() {
   return (

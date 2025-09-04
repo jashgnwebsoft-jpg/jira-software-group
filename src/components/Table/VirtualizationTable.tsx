@@ -7,10 +7,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { TableVirtuoso, type TableComponents } from "react-virtuoso";
-import type { IssueRow, User } from "../types/IssueType";
-import { issues } from "../data/TempData";
 import { Avatar, Stack, Typography } from "@mui/material";
 import { BugReport, TaskOutlined } from "@mui/icons-material";
+import type { IssueRow, User } from "../../types/IssueType";
+import { issues } from "../../data/TempData";
 
 interface ColumnData {
   dataKey: keyof IssueRow;

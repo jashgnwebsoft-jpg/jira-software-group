@@ -16,7 +16,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import CollapsibleTableComponent from "../../../components/CollapsibleTableComponent";
+import CollapsibleTableComponent from "../../../components/Table/CollapsibleTableComponent";
 
 export default function AllGoalView() {
   return (
