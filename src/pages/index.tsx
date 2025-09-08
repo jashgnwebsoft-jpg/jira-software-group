@@ -12,7 +12,7 @@ export default function Index() {
           <Grid size={{ xs: 12, md: 2 }}>
             <SideNav />
           </Grid>
-          <Grid size={{ xs: 12, md: 10 }}>
+          <Grid size={{ xs: 12, md: 10 }} mb={2}>
             <Outlet />
           </Grid>
         </Grid>
