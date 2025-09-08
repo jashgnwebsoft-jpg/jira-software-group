@@ -18,6 +18,7 @@
     "@mui/material": "^7.3.1",
     "@mui/styled-engine-sc": "^7.3.1",
     "@tanstack/react-query": "^5.86.0",
+    "@tanstack/react-query-devtools": "^5.87.1",
     "@tanstack/react-virtual": "^3.13.12",
     "axios": "^1.11.0",
     "chance": "^1.1.13",
